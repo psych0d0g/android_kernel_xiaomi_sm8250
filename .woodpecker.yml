@@ -1,0 +1,18 @@
+---
+steps:
+  - name: building-topaz
+    image: debian:stable-slim
+    environment:
+      CI_CHANNEL_ID: none
+      BOT_API_KEY: none
+      PD_API_KEY: none
+      TYPE: REL-7.1.0
+      DEVICE: psyche
+      KBUILD_BUILD_USER: cronix
+      KBUILD_BUILD_HOST: Supermicro
+    commands:
+      - apt-get update && apt-get install -y bison build-essential bc bison curl libssl-dev git zip python3 flex cpio libncurses5-dev wget
+      - curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+      - git clone https://github.com/psych0d0g/woodpecker-scripts.git --depth=1 -b kona script && cd script
+      - ./setup-woodpecker --aosp-clang
+      - ./build-kernel --aosp-clang --lto
