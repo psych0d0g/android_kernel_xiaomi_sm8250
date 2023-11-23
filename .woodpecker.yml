@@ -2,6 +2,7 @@
 steps:
   - name: building-topaz
     image: harbor.crystalnet.org/library/kernel_builder_droid:latest
+    pull: true
     environment:
       DEVICE: psyche
       KBUILD_BUILD_USER: cronix
