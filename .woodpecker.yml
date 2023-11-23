@@ -8,8 +8,8 @@ steps:
       KBUILD_BUILD_HOST: Supermicro
     commands:
       # - apt-get update && apt-get install -y bison build-essential bc curl libssl-dev git zip zstd python3 flex cpio libncurses5-dev wget 
-      #- curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
       - pacman -Sy --noconfirm bc cpio git zip cpio wget python3 
+      - curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
       - git clone https://github.com/psych0d0g/woodpecker-scripts.git --depth=1 -b kona script && cd script
       - ./setup-woodpecker
       - ./build-kernel
