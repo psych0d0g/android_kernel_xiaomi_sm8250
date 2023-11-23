@@ -35,4 +35,5 @@ steps:
           OBJDUMP=llvm-objdump
           STRIP=llvm-strip
           CLANG_WARN_STRICT_PROTOTYPES=no
-          -j"$(nproc --all)" | tee log.txt	
+          -j"$(nproc --all)"
+      - tar -czvf "kernel_$(date '+%s').tar.gz" out/
