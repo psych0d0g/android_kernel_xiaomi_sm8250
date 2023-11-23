@@ -19,3 +19,13 @@ steps:
         --enable CONFIG_KPROBES
         --enable CONFIG_HAVE_KPROBES
         --enable CONFIG_KPROBE_EVENTS
+        --file out/.config
+      - make ARCH=arm64
+          O=out
+          CC=clang
+          AR=llvm-ar
+          NM=llvm-nm
+          OBJCOPY=llvm-objcopy
+          OBJDUMP=llvm-objdump
+          STRIP=llvm-strip
+          -j"$(nproc --all)" | tee log.txt	
