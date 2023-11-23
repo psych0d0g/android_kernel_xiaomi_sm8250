@@ -37,3 +37,11 @@ steps:
           CLANG_WARN_STRICT_PROTOTYPES=no
           -j"$(nproc --all)"
       - tar -czvf "kernel_$(date '+%s').tar.gz" out/
+  - name: release-to-github
+    image: woodpeckerci/plugin-github-release
+    settings:
+      files:
+        - kernel*.tar.gz
+      title: ${CI_COMMIT_TAG##v}
+      api-key:
+        from_secret: github_token
