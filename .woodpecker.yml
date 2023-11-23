@@ -10,5 +10,5 @@ steps:
       - apt-get update && apt-get install -y bison build-essential bc bison curl libssl-dev git zip zstd python3 flex cpio libncurses5-dev wget 
       #- curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
       - git clone https://github.com/psych0d0g/woodpecker-scripts.git --depth=1 -b kona script && cd script
-      - ./setup-woodpecker --aosp-clang
-      - ./build-kernel --aosp-clang --lto
+      - ./setup-woodpecker
+      - ./build-kernel
