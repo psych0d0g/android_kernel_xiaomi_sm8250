@@ -15,11 +15,11 @@ steps:
       - curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
       - make O=out CC=clang ARCH=arm64 psyche_defconfig
       - scripts/config
+        --file out/.config
         --set-str CONFIG_LOCALVERSION "-TopazKSU"
         --enable CONFIG_KPROBES
         --enable CONFIG_HAVE_KPROBES
         --enable CONFIG_KPROBE_EVENTS
-        --file out/.config
       - make ARCH=arm64
           O=out
           CC=clang
