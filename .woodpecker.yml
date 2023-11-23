@@ -1,7 +1,7 @@
 ---
 steps:
   - name: building-topaz
-    image: arch:base-devel
+    image: archlinux:base-devel
     environment:
       DEVICE: psyche
       KBUILD_BUILD_USER: cronix
@@ -9,7 +9,7 @@ steps:
     commands:
       # - apt-get update && apt-get install -y bison build-essential bc curl libssl-dev git zip zstd python3 flex cpio libncurses5-dev wget 
       #- curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-      - pacman -Sy bc cpio git zip cpio wget python3 
+      - pacman -Sy --noconfirm bc cpio git zip cpio wget python3 
       - git clone https://github.com/psych0d0g/woodpecker-scripts.git --depth=1 -b kona script && cd script
       - ./setup-woodpecker
       - ./build-kernel
