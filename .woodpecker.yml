@@ -3,10 +3,6 @@ steps:
   - name: building-topaz
     image: debian:stable-slim
     environment:
-      CI_CHANNEL_ID: none
-      BOT_API_KEY: none
-      PD_API_KEY: none
-      TYPE: REL-7.1.0
       DEVICE: psyche
       KBUILD_BUILD_USER: cronix
       KBUILD_BUILD_HOST: Supermicro
