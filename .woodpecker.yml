@@ -1,4 +1,10 @@
 ---
+clone:
+  git:
+    image: woodpeckerci/plugin-git
+    settings:
+      partial: false
+      depth: 1
 steps:
   - name: building-topaz
     image: harbor.crystalnet.org/library/kernel_builder_droid:latest
@@ -6,7 +12,6 @@ steps:
     environment:
       CROSS_COMPILE: aarch64-linux-gnu-
       CROSS_COMPILE_COMPAT: arm-linux-gnueabi-
-      CLANG_WARN_STRICT_PROTOTYPES: "no"
       LLVM: "1"
       LLVM_IAS: "1"
       DEVICE: psyche
@@ -29,4 +34,5 @@ steps:
           OBJCOPY=llvm-objcopy
           OBJDUMP=llvm-objdump
           STRIP=llvm-strip
+          CLANG_WARN_STRICT_PROTOTYPES=no
           -j"$(nproc --all)" | tee log.txt	
