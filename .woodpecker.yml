@@ -9,5 +9,4 @@ steps:
       KBUILD_BUILD_HOST: Supermicro
     commands:
       - curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-      - git clone https://github.com/psych0d0g/woodpecker-scripts.git --depth=1 -b kona script && cd script
-      - ./build-kernel
+      - /usr/local/bin/kernel_builder.sh
