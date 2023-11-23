@@ -4,10 +4,13 @@ steps:
     image: harbor.crystalnet.org/library/kernel_builder_droid:latest
     pull: true
     environment:
+      CROSS_COMPILE: aarch64-linux-gnu-
+      CROSS_COMPILE_COMPAT: arm-linux-gnueabi-
+      LLVM: 1
+      LLVM_IAS: 1
       DEVICE: psyche
       KBUILD_BUILD_USER: cronix
       KBUILD_BUILD_HOST: Supermicro
     commands:
       - curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-      - make mrproper
-      - /usr/local/bin/kernel_builder.sh
+      - make O=out CC=clang ARCH=arm64 psyche_defconfig
