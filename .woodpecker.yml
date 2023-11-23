@@ -9,4 +9,5 @@ steps:
       KBUILD_BUILD_HOST: Supermicro
     commands:
       - curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+      - make mrproper
       - /usr/local/bin/kernel_builder.sh
